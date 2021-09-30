@@ -1,0 +1,14 @@
+node_modules/
+.tmp/
+.idea/
+newrelic_agent.log
+npm-debug.log
+.vscode/
+config/locals.json
+config/env/locals.js
+_puml/*.png
+logfile.log
+.DS_Store
+*.csv
+*.json
+assets/.DS_Store
