@@ -1,6 +1,10 @@
 import express from 'express';
 import controller from '../controllers/index';
+import staticctrl from '../controllers/staticctrl';
 const router = express.Router();
+
+//health check
+router.get('/hc', staticctrl.health);
 
 router.get('/', controller.getPosts);
 router.get('/posts/:id', controller.getPost);
