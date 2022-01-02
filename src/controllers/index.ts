@@ -2,18 +2,18 @@ import { Request, Response, NextFunction } from 'express';
 import axios, { AxiosResponse } from 'axios';
 
 interface Post {
-  userId: Number;
-  id: Number;
-  title: String;
-  body: String;
-};
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
 
 
 // getting all posts
 const getPosts = async (req: Request, res: Response, next: NextFunction) => {
   // get some posts
-  let result: AxiosResponse = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
-  let posts: [Post] = result.data;
+  const result: AxiosResponse = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
+  const posts: [Post] = result.data;
   return res.status(200).json({
     message: posts
   });
@@ -22,10 +22,10 @@ const getPosts = async (req: Request, res: Response, next: NextFunction) => {
 // getting a single post
 const getPost = async (req: Request, res: Response, next: NextFunction) => {
   // get the post id from the req
-  let id: string = req.params.id;
+  const id: string = req.params.id;
   // get the post
-  let result: AxiosResponse = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
-  let post: Post = result.data;
+  const result: AxiosResponse = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const post: Post = result.data;
   return res.status(200).json({
     message: post
   });
@@ -34,12 +34,12 @@ const getPost = async (req: Request, res: Response, next: NextFunction) => {
 // updating a post
 const updatePost = async (req: Request, res: Response, next: NextFunction) => {
   // get the post id from the req.params
-  let id: string = req.params.id;
+  const id: string = req.params.id;
   // get the data from req.body
-  let title: string = req.body.title ?? null;
-  let body: string = req.body.body ?? null;
+  const title: string = req.body.title ?? null;
+  const body: string = req.body.body ?? null;
   // update the post
-  let response: AxiosResponse = await axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+  const response: AxiosResponse = await axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       ...(title && { title }),
       ...(body && { body })
   });
@@ -52,9 +52,9 @@ const updatePost = async (req: Request, res: Response, next: NextFunction) => {
 // deleting a post
 const deletePost = async (req: Request, res: Response, next: NextFunction) => {
   // get the post id from req.params
-  let id: string = req.params.id;
+  const id: string = req.params.id;
   // delete the post
-  let response: AxiosResponse = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const response: AxiosResponse = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
   // return response
   return res.status(200).json({
       message: 'post deleted successfully'
@@ -64,10 +64,10 @@ const deletePost = async (req: Request, res: Response, next: NextFunction) => {
 // adding a post
 const addPost = async (req: Request, res: Response, next: NextFunction) => {
   // get the data from req.body
-  let title: string = req.body.title;
-  let body: string = req.body.body;
+  const title: string = req.body.title;
+  const body: string = req.body.body;
   // add the post
-  let response: AxiosResponse = await axios.post(`https://jsonplaceholder.typicode.com/posts`, {
+  const response: AxiosResponse = await axios.post(`https://jsonplaceholder.typicode.com/posts`, {
       title,
       body
   });

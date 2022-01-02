@@ -6,4 +6,6 @@ This project is used to get started with REST APIs
 
 - `nvm use`
 - `npm install`
+- `npx tsc`
+- `node dist/app.js`
 - `npm run dev`

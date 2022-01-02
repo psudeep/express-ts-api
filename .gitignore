@@ -1,5 +1,6 @@
 node_modules/
 .tmp/
+dist/
 .idea/
 newrelic_agent.log
 npm-debug.log
