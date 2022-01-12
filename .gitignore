@@ -11,5 +11,4 @@ _puml/*.png
 logfile.log
 .DS_Store
 *.csv
-*.json
 assets/.DS_Store
